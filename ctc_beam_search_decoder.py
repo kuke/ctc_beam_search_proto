@@ -77,7 +77,7 @@ def ctc_beam_search_decoder(
         # the set containing candidate prefixes
         prefix_set_next = {}
         probs_b_cur, probs_nb_cur = {}, {}
-        for (l, prob_) in prefix_set_prev.items():
+        for l in prefix_set_prev:
             prob = input_probs_matrix[time_step]
 
             # convert ids in string to list
