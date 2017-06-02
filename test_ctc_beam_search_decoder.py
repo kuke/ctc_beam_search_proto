@@ -1,12 +1,7 @@
 from __future__ import absolute_import
-from __future__ import division
 from __future__ import print_function
 
-import itertools
-
 import numpy as np
-from six.moves import zip_longest
-
 import tensorflow as tf
 from tensorflow.python.framework import ops
 from tensorflow.python.ops import array_ops
@@ -30,7 +25,7 @@ def test_beam_search_decoder():
         dtype=np.float32)
         
     # Add arbitrary offset - this is fine
-    input_log_prob_matrix_0 = np.log(input_prob_matrix_0) + 2.0
+    input_log_prob_matrix_0 = np.log(input_prob_matrix_0) #+ 2.0
 
     # len max_time_steps array of batch_size x depth matrices
     inputs = ([

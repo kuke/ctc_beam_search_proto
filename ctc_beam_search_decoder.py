@@ -83,7 +83,7 @@ def ctc_beam_search_decoder(
             # convert ids in string to list
             ids_list = ids_str2list(l)
             end_id = ids_list[-1]
-            if not probs_b_cur.has_key(l):
+            if not prefix_set_next.has_key(l):
                 probs_b_cur[l], probs_nb_cur[l] = 0.0, 0.0
 
             # extend prefix by travering vocabulary
@@ -92,7 +92,7 @@ def ctc_beam_search_decoder(
 	            probs_b_cur[l] += prob[c] * (probs_b[l] + probs_nb[l])
 		else:
 	            l_plus = l + ' ' + str(c)
-                    if not probs_b_cur.has_key(l_plus):
+                    if not prefix_set_next.has_key(l_plus):
                         probs_b_cur[l_plus], probs_nb_cur[l_plus] = 0.0, 0.0
 
 		    if c == end_id:
